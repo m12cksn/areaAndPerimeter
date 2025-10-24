@@ -463,7 +463,7 @@ export default function App() {
 
         {/* Main card */}
         <div
-          className={`bg-white text-white dark:bg-gray-800 rounded-xl shadow p-6`}
+          className={`bg-white text-white dark:bg-gray-800 dark:text-white rounded-xl shadow p-6`}
         >
           {!showResults ? (
             <AnimatePresence exitBeforeEnter>
