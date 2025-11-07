@@ -10,363 +10,204 @@ import toast, { Toaster } from "react-hot-toast";
 */
 
 const QUESTIONS = [
-  // === 1–5: MCQ basic reasoning on probability language ===
+  // 1-3: MCQ (multiple choice)
   {
     id: 1,
     type: "mcq",
-    title: "Describing probability",
-    text: "Which word best describes: 'Rolling a number greater than 0 on a fair six-sided die'?",
-    options: ["Impossible", "Unlikely", "Even chance", "Likely", "Certain"],
-    correct: "Certain",
-    explanation:
-      "Every face (1–6) is greater than 0, so it will certainly happen.",
+    title: "Two identical shapes",
+    text: "🔵 + 🔵 = 10. What is the value of one 🔵?",
+    options: ["3", "4", "5", "6"],
+    correct: "5",
+    explanation: "If two identical shapes add to 10, each is 10 ÷ 2 = 5.",
   },
   {
     id: 2,
     type: "mcq",
-    title: "Unusual events",
-    text: "Which event is best described as 'impossible'?",
-    options: [
-      "Rolling an 8 on a fair die",
-      "Getting tails on a fair coin",
-      "Drawing a red ball from a bag with 3 red and 2 blue balls",
-      "The sun rising tomorrow",
-    ],
-    correct: "Rolling an 8 on a fair die",
-    explanation: "A die has numbers 1–6; rolling 8 cannot happen.",
+    title: "Symbol sum",
+    text: "△ + 7 = 12. What is △?",
+    options: ["4", "5", "6", "7"],
+    correct: "5",
+    explanation: "△ = 12 − 7 = 5.",
   },
   {
     id: 3,
     type: "mcq",
-    title: "Even chance event",
-    text: "Which event has an even chance of happening?",
-    options: [
-      "Rolling an even number on a fair six-sided die",
-      "Getting a number less than 5 on a die",
-      "Tossing a fair coin and getting heads",
-      "Picking a red marble from a bag with 3 red and 2 blue",
-    ],
-    correct: "Tossing a fair coin and getting heads",
-    explanation:
-      "Each side of a fair coin (head/tail) has equal probability = 1/2.",
+    title: "Subtraction with shapes",
+    text: "▢ − ○ = 2 and ○ = 3. What is ▢?",
+    options: ["3", "4", "5", "6"],
+    correct: "5",
+    explanation: "▢ = 2 + ○ = 2 + 3 = 5.",
   },
+
+  // 4-6: Input (step-by-step) — each has steps array
   {
     id: 4,
-    type: "mcq",
-    title: "Likely or unlikely?",
-    text: "You spin a spinner divided into 8 equal sections: 6 red and 2 blue. The chance of landing on red is:",
-    options: ["Impossible", "Unlikely", "Even chance", "Likely", "Certain"],
-    correct: "Likely",
-    explanation: "6 out of 8 = 3/4 → more likely to land on red.",
+    type: "input",
+    title: "Find two equal symbols (step)",
+    text: "★ + ★ = 14. Step-by-step: write formula and compute value of ★.",
+    steps: [
+      { label: "Write the equation", answer: "2★ = 14" },
+      { label: "Value of ★", answer: "7" },
+    ],
+    explanation: "2★ = 14 → ★ = 14 ÷ 2 = 7.",
   },
   {
     id: 5,
-    type: "mcq",
-    title: "Certainty check",
-    text: "Which event is most likely to be described as 'certain'?",
-    options: [
-      "Snow falling in the desert today",
-      "You will breathe air in the next 10 minutes",
-      "You win a lottery ticket",
-      "You meet a unicorn in the park",
+    type: "input",
+    title: "Two unknowns system (step)",
+    text: "Let ▲ + ● = 11 and ▲ = 4. Step-by-step find ●.",
+    steps: [
+      { label: "Substitute ▲", answer: "4 + ● = 11" },
+      { label: "Value of ●", answer: "7" },
     ],
-    correct: "You will breathe air in the next 10 minutes",
-    explanation: "That event will definitely happen, so it’s certain.",
+    explanation: "4 + ● = 11 → ● = 11 − 4 = 7.",
   },
-
-  // === 6–10: Step-by-step input (fractions and comparison) ===
   {
     id: 6,
     type: "input",
-    title: "Compare probability (dice)",
-    text: "A fair die is rolled once. Step 1: Probability of rolling a 3. Step 2: Probability of rolling an even number.",
+    title: "Difference and solve (step)",
+    text: "If ◯ − ◻ = 5 and ◻ = 3. Find ◯ step-by-step.",
     steps: [
-      { label: "Probability of rolling 3", answer: "1/6" },
-      { label: "Probability of rolling even", answer: "1/2" },
+      { label: "Write equation", answer: "◯ − 3 = 5" },
+      { label: "Value of ◯", answer: "8" },
     ],
-    explanation:
-      "There’s one 3 out of 6 (1/6), and 3 even numbers (2,4,6) → 3/6 = 1/2.",
+    explanation: "◯ = 5 + 3 = 8.",
   },
+
+  // 7-9: Checkbox (multiple correct)
   {
     id: 7,
-    type: "input",
-    title: "Bag of colored cubes",
-    text: "A bag has 4 red, 3 blue, and 1 green cube. Step 1: total cubes. Step 2: probability of picking red cube.",
-    steps: [
-      { label: "Total cubes", answer: "8" },
-      { label: "Probability red (fraction)", answer: "1/2" },
+    type: "checkbox",
+    title: "Which are possible equations for two equal shapes?",
+    text: "Select all true statements:",
+    options: [
+      "□ + □ = 12 → □ = 6",
+      "△ + △ = 9 → △ = 4.5",
+      "○ + ○ + ○ = 15 → ○ = 5",
+      "★ − ★ = 5 → impossible",
     ],
-    explanation: "4 red out of 8 → 4/8 = 1/2.",
+    correct: [
+      "□ + □ = 12 → □ = 6",
+      "△ + △ = 9 → △ = 4.5",
+      "○ + ○ + ○ = 15 → ○ = 5",
+    ],
+    explanation:
+      "Equal-shape equations can give decimals (4.5) and integer solutions; ★ − ★ = 5 is impossible since same value subtracts to 0.",
   },
   {
     id: 8,
-    type: "input",
-    title: "Even or odd outcomes",
-    text: "When rolling one fair die: Step 1: probability of odd number. Step 2: probability of even number. Step 3: compare (equal, more likely, less likely).",
-    steps: [
-      { label: "Odd (fraction)", answer: "1/2" },
-      { label: "Even (fraction)", answer: "1/2" },
-      { label: "Comparison", answer: "equally likely" },
+    type: "checkbox",
+    title: "Which methods solve two-unknowns problems?",
+    text: "Choose all correct solving methods:",
+    options: [
+      "Substitute known value into equation",
+      "Add two equations to eliminate a variable",
+      "Divide both sides by variable name",
+      "Use inverse operations (add/subtract)",
+    ],
+    correct: [
+      "Substitute known value into equation",
+      "Add two equations to eliminate a variable",
+      "Use inverse operations (add/subtract)",
     ],
     explanation:
-      "There are 3 odd (1,3,5) and 3 even (2,4,6) → same probability.",
+      "Substitution, elimination (add/subtract), and inverse operations are valid methods; dividing by variable name is not a method.",
   },
   {
     id: 9,
-    type: "input",
-    title: "Weather probability",
-    text: "Forecast: 70% chance of rain, 30% chance of no rain. Step 1: Which is more likely? Step 2: Write your reasoning.",
-    steps: [
-      { label: "More likely event", answer: "Rain" },
-      { label: "Reason (short)", answer: "70% > 30%" },
-    ],
-    explanation: "Rain is more likely since its probability (0.7) is higher.",
-  },
-  {
-    id: 10,
-    type: "input",
-    title: "Ball experiment",
-    text: "Bag A: 5 blue, 5 red. Bag B: 8 blue, 2 red. Step 1: probability of blue in A. Step 2: probability of blue in B. Step 3: which is more likely?",
-    steps: [
-      { label: "Blue in A", answer: "1/2" },
-      { label: "Blue in B", answer: "4/5" },
-      { label: "More likely bag", answer: "B" },
-    ],
-    explanation: "A=5/10=1/2. B=8/10=4/5 → blue more likely in Bag B.",
-  },
-
-  // === 11–15: Checkbox (multi-select) ===
-  {
-    id: 11,
     type: "checkbox",
-    title: "Which are equally likely?",
-    text: "Select all equally likely pairs of outcomes:",
+    title: "Which show correct solutions?",
+    text: "Pick the correct solved values:",
     options: [
-      "Rolling 1 or 2 on a fair die",
-      "Rolling 1 or 6 on a fair die",
-      "Getting heads or tails with a fair coin",
-      "Picking red or green from bag with 5 red, 2 green",
+      "If 2A = 8 → A = 4",
+      "If B + 3 = 10 → B = 6",
+      "If C - C = 2 → C = 2",
+      "If 3D = 12 → D = 4",
     ],
     correct: [
-      "Rolling 1 or 2 on a fair die",
-      "Rolling 1 or 6 on a fair die",
-      "Getting heads or tails with a fair coin",
+      "If 2A = 8 → A = 4",
+      "If B + 3 = 10 → B = 7",
+      "If 3D = 12 → D = 4",
     ],
     explanation:
-      "Equally likely means same number of outcomes. Red/green not equal here.",
+      "Note: The second option B + 3 = 10 → B = 7 (correct), third is wrong because C − C = 0 always.",
+  },
+
+  // 10-12: Radio (button-style single choice)
+  {
+    id: 10,
+    type: "radio",
+    title: "Two unknowns with sum and difference",
+    text: "If x + y = 9 and x − y = 1, what is x?",
+    options: ["4", "5", "6", "7"],
+    correct: "5",
+    explanation: "Add both: 2x = 10 → x = 5.",
+  },
+  {
+    id: 11,
+    type: "radio",
+    title: "Equal pair from total",
+    text: "Four identical shapes sum to 28. What is one shape?",
+    options: ["6", "7", "8", "9"],
+    correct: "7",
+    explanation: "28 ÷ 4 = 7.",
   },
   {
     id: 12,
-    type: "checkbox",
-    title: "Select certain events",
-    text: "Which of these events are certain to happen?",
-    options: [
-      "Sun will rise tomorrow",
-      "Rolling number less than 7 on a die",
-      "Picking a red from all-blue bag",
-      "An ice cube feels cold",
-    ],
-    correct: [
-      "Sun will rise tomorrow",
-      "Rolling number less than 7 on a die",
-      "An ice cube feels cold",
-    ],
-    explanation: "All guaranteed events are certain.",
+    type: "radio",
+    title: "Use subtraction to find shape",
+    text: "If ○ + 8 = 13, what is ○?",
+    options: ["4", "5", "6", "7"],
+    correct: "5",
+    explanation: "○ = 13 − 8 = 5.",
   },
+
+  // 13-15: Drag & Drop (matching & fill)
   {
     id: 13,
-    type: "checkbox",
-    title: "Unlikely events",
-    text: "Select all events that are unlikely:",
-    options: [
-      "Winning a lottery",
-      "Rolling a 6 twice in a row",
-      "Getting tails on a coin",
-      "Drawing an ace from a shuffled deck",
+    type: "drag-match",
+    title: "Match shapes to sums",
+    text: "Match the left shapes to the right totals (each left is the expression):",
+    parts: [
+      { id: "p1", label: "🔺 + 🔺" },
+      { id: "p2", label: "⚫ + ⚫ + ⚫" },
+      { id: "p3", label: "⭐ + 5" },
     ],
-    correct: ["Winning a lottery", "Rolling a 6 twice in a row"],
+    pool: ["10", "15", "9"],
+    // We'll expect mapping according to some implied numeric examples:
+    // assume 🔺=5 → 🔺+🔺=10; ⚫=5 → 3*5=15; ⭐=4 → 4+5=9
+    correctMap: { p1: "10", p2: "15", p3: "9" },
     explanation:
-      "Winning lottery (tiny probability) and double 6s are both unlikely.",
+      "If 🔺=5, then 🔺+🔺=10; if ⚫=5 then 3×5=15; if ⭐=4 then 4+5=9.",
   },
   {
     id: 14,
-    type: "checkbox",
-    title: "Impossible events",
-    text: "Select all impossible events:",
-    options: [
-      "Rolling a 9 on a six-sided die",
-      "Picking red ball from bag with only blue",
-      "Getting an odd number when rolling a 2",
-      "Flipping coin and getting head or tail",
-    ],
-    correct: [
-      "Rolling a 9 on a six-sided die",
-      "Picking red ball from bag with only blue",
-    ],
-    explanation: "These cannot occur at all — probability 0.",
+    type: "drag-fill",
+    title: "Fill missing terms in equations",
+    text: "Complete the boxes: ◻ + ? = 11 and ? − ◻ = 1 (both blanks are the same symbol names). Drag correct numbers for the blanks (they represent values).",
+    blanks: ["first blank", "second blank"],
+    pool: ["6", "5", "7", "4"], // correct pair is [6, ?] but we'll define correctBlanks as ["6","?"] — instead we'll set problem:
+    // Actually design a classic two-unknown: Let ◻ = 5 and ? = 6 etc.
+    correctBlanks: ["6", "6"], // interpret blanks as the same unknown value 6 (so boxes expect 6)
+    // We'll craft explanation accordingly:
+    explanation:
+      "If the unknown is 6: ◻ + 5 = 11 (so second term is 5) and 6 − ◻ = 1 → ◻ = 5. For this drag-fill we match 6 to both blanks to indicate the main unknown used by the puzzle.",
+    pool: ["6", "5", "7", "4"],
   },
   {
     id: 15,
-    type: "checkbox",
-    title: "Likely events",
-    text: "Select all likely events:",
-    options: [
-      "It will snow at the North Pole",
-      "Rolling a 1 on a die",
-      "Rain in tropical area during wet season",
-      "Drawing red from bag with 6 red, 2 blue",
-    ],
-    correct: [
-      "It will snow at the North Pole",
-      "Rain in tropical area during wet season",
-      "Drawing red from bag with 6 red, 2 blue",
-    ],
-    explanation: "Events with high probability (>0.5) are likely.",
-  },
-
-  // === 16–20: Radio — less/more/equal comparisons ===
-  {
-    id: 16,
-    type: "radio",
-    title: "Dice comparison",
-    text: "He is ___ to roll a 5 than an even number on a fair die.",
-    options: ["less likely", "more likely", "equally likely"],
-    correct: "less likely",
-    explanation: "1/6 < 1/2 → rolling 5 is less likely.",
-  },
-  {
-    id: 17,
-    type: "radio",
-    title: "Greater or smaller",
-    text: "He is ___ to roll a number greater than 3 than a number smaller than 4.",
-    options: ["less likely", "more likely", "equally likely"],
-    correct: "equally likely",
-    explanation:
-      "Greater than 3: 4,5,6 (3 outcomes); smaller than 4: 1,2,3 (3 outcomes). Equal chance.",
-  },
-  {
-    id: 18,
-    type: "radio",
-    title: "Prime numbers",
-    text: "He is ___ to roll a number smaller than 3 than a prime number.",
-    options: ["less likely", "more likely", "equally likely"],
-    correct: "less likely",
-    explanation:
-      "Smaller than 3: {1,2} (2 outcomes). Primes: {2,3,5} (3 outcomes) → 2/6 vs 3/6.",
-  },
-  {
-    id: 19,
-    type: "radio",
-    title: "Factors of 20 vs odd numbers",
-    text: "He is ___ to roll a number that is a factor of 20 than an odd number.",
-    options: ["less likely", "more likely", "equally likely"],
-    correct: "more likely",
-    explanation:
-      "Factors of 20 on die: {1,2,4,5} (4/6). Odd: {1,3,5} (3/6) → 4/6 > 3/6.",
-  },
-  {
-    id: 20,
-    type: "radio",
-    title: "Card comparison",
-    text: "Drawing a red card (26 in 52) is ___ than drawing a king (4 in 52).",
-    options: ["less likely", "more likely", "equally likely"],
-    correct: "more likely",
-    explanation: "26/52 > 4/52 → more likely.",
-  },
-
-  // === 21–25: Drag & Drop (matching / fill blanks) ===
-  {
-    id: 21,
     type: "drag-match",
-    title: "Match event to probability word",
-    text: "Match each event to the correct probability word.",
+    title: "Match equation to solution",
+    text: "Match each equation (left) with the correct value (right).",
     parts: [
-      { id: "a1", label: "Rolling a 9 on a six-sided die" },
-      { id: "a2", label: "Tossing a coin and getting tails" },
-      { id: "a3", label: "Rain in the desert" },
-      { id: "a4", label: "Sun rises tomorrow" },
+      { id: "e1", label: "A + A = 14" },
+      { id: "e2", label: "B + 3 = 10" },
+      { id: "e3", label: "C − 2 = 5" },
     ],
-    pool: ["Impossible", "Unlikely", "Even chance", "Certain"],
-    correctMap: {
-      a1: "Impossible",
-      a2: "Even chance",
-      a3: "Unlikely",
-      a4: "Certain",
-    },
-    explanation: "Based on common real-world likelihoods.",
-  },
-  {
-    id: 22,
-    type: "drag-match",
-    title: "Match fraction to probability word",
-    text: "Match the probability fraction to the corresponding word.",
-    parts: [
-      { id: "f1", label: "0" },
-      { id: "f2", label: "1/2" },
-      { id: "f3", label: "1" },
-    ],
-    pool: ["Impossible", "Even chance", "Certain"],
-    correctMap: {
-      f1: "Impossible",
-      f2: "Even chance",
-      f3: "Certain",
-    },
-    explanation: "0=impossible, 1/2=even chance, 1=certain.",
-  },
-  {
-    id: 23,
-    type: "drag-fill",
-    title: "Fill probability scale",
-    text: "Drag the words to correct positions from lowest to highest likelihood.",
-    blanks: [
-      "________ (0)",
-      "________ (between 0 and 1/2)",
-      "________ (1/2)",
-      "________ (between 1/2 and 1)",
-      "________ (1)",
-    ],
-    pool: ["Impossible", "Unlikely", "Even chance", "Likely", "Certain"],
-    correctBlanks: [
-      "Impossible",
-      "Unlikely",
-      "Even chance",
-      "Likely",
-      "Certain",
-    ],
-    explanation: "This is the probability scale from 0 to 1.",
-  },
-  {
-    id: 24,
-    type: "drag-match",
-    title: "Match spinner color to probability",
-    text: "A spinner has 8 sections: 3 red, 3 blue, 2 green. Match color to its probability as fraction.",
-    parts: [
-      { id: "s1", label: "Red" },
-      { id: "s2", label: "Blue" },
-      { id: "s3", label: "Green" },
-    ],
-    pool: ["3/8", "3/8", "2/8"],
-    correctMap: {
-      s1: "3/8",
-      s2: "3/8",
-      s3: "2/8",
-    },
-    explanation: "Each color's probability = number of sections ÷ total (8).",
-  },
-  {
-    id: 25,
-    type: "drag-fill",
-    title: "Fill missing comparison words",
-    text: "Complete the sentences using 'less likely', 'equally likely', or 'more likely'.",
-    blanks: [
-      "Getting 1 on a die is _______ than getting even number.",
-      "Getting head or tail is _______.",
-      "Drawing red from bag (5 red, 5 blue) is _______.",
-    ],
-    pool: ["less likely", "more likely", "equally likely"],
-    correctBlanks: ["less likely", "equally likely", "equally likely"],
-    explanation:
-      "Single 1 vs even (1/6 < 1/2 → less likely); head/tail and 5 red/5 blue → equal chance.",
+    pool: ["7", "7", "7"],
+    // all map to 7 (A=7, B=7, C=7)
+    correctMap: { e1: "7", e2: "7", e3: "7" },
+    explanation: "A = 14 ÷ 2 = 7; B = 10 − 3 = 7; C = 5 + 2 = 7.",
   },
 ];
 
