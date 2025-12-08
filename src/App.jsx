@@ -133,7 +133,7 @@ const QUESTIONS = [
     type: "mcq",
     title: "Visual subtraction",
     text: "🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗 🚗🚗🚗🚗 − 🚗🚗🚗 = ?",
-    options: ["7", "8", "9", "10"],
+    options: ["7", "8", "9", "11"],
     correct: "11",
     explanation: "14 − 3 = 11.",
   },
