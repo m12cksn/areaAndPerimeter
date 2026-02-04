@@ -192,7 +192,6 @@ const QUESTIONS = [
     // We'll craft explanation accordingly:
     explanation:
       "If the unknown is 6: ◻ + 5 = 11 (so second term is 5) and 6 − ◻ = 1 → ◻ = 5. For this drag-fill we match 6 to both blanks to indicate the main unknown used by the puzzle.",
-    pool: ["6", "5", "7", "4"],
   },
   {
     id: 15,
