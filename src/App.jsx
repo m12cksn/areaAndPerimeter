@@ -9,6 +9,7 @@ import PerkalianPembagian from "./perkalianPembagian.jsx";
 import Probability from "./probability.jsx";
 import Tangram from "./tangram.jsx";
 import KakuroPerkalian from "./kakuroPerkalian.jsx";
+import PerkalianDasar from "./perkalianDasar.jsx";
 
 const PAGES = [
   { id: "add-subt", label: "Add & Subt", Component: AddAndSubt },
@@ -21,6 +22,7 @@ const PAGES = [
   { id: "probability", label: "Probability", Component: Probability },
   { id: "tangram", label: "Tangram", Component: Tangram },
   { id: "kakuro-perkalian", label: "Kakuro Perkalian", Component: KakuroPerkalian },
+  { id: "perkalian-dasar", label: "Perkalian Dasar", Component: PerkalianDasar },
 ];
 
 export default function App() {
