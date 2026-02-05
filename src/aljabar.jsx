@@ -3,121 +3,125 @@ import toast, { Toaster } from "react-hot-toast";
 import { AnimatePresence, motion } from "framer-motion";
 
 const DATA = {
-  title: "Perkalian & Pembagian (Mudah)",
+  title: "Aljabar HOTS (SMP)",
   description:
-    "Latihan dasar perkalian dan pembagian pada bilangan bulat serta desimal sederhana.",
+    "Latihan aljabar tingkat tinggi: pemodelan cerita, persamaan/pertidaksamaan, dan manipulasi bentuk aljabar.",
   questions: [
     {
       id: "q1",
-      type: "multiple_choice",
-      question: "Hasil dari 6 × 4 adalah ...",
-      choices: ["10", "24", "26", "64"],
-      answer: "24",
-      explanation: "6 dikali 4 = 24.",
+      type: "short_answer",
+      question: "Sederhanakan: 2(3x − 5) − (x − 7) = ...",
+      answer: "5x-3",
+      explanation: "6x − 10 − x + 7 = 5x − 3.",
     },
     {
       id: "q2",
       type: "short_answer",
-      question: "Hitung: 9 × 3 = ...",
-      answer: "27",
-      explanation: "9 × 3 = 27.",
+      question: "Tentukan x: 2x − 3 = 5x + 12",
+      answer: "-5",
+      explanation: "-3 − 12 = 5x − 2x → -15 = 3x → x = -5.",
     },
     {
       id: "q3",
       type: "multiple_choice",
-      question: "Hasil dari 12 × 5 adalah ...",
-      choices: ["17", "60", "120", "25"],
-      answer: "60",
-      explanation: "12 × 5 = 60.",
+      question: "Jika 3x + 2 > 11, maka x adalah ...",
+      choices: ["x > 3", "x < 3", "x > 5", "x < 5"],
+      answer: "x > 3",
+      explanation: "3x > 9 → x > 3.",
     },
     {
       id: "q4",
-      type: "short_answer",
-      question: "Hitung: 7 × 8 = ...",
-      answer: "56",
-      explanation: "7 × 8 = 56.",
+      type: "story_problem",
+      question:
+        "Harga 2 pensil dan 3 pulpen adalah Rp14.000. Harga 1 pensil dan 2 pulpen adalah Rp8.000. Tentukan harga 1 pulpen.",
+      answer: "4000",
+      explanation:
+        "Misal p = pulpen, s = pensil. 2s + 3p = 14.000 dan s + 2p = 8.000. Dari s = 8.000 − 2p, substitusi: 2(8.000 − 2p) + 3p = 14.000 → p = 4.000.",
     },
     {
       id: "q5",
       type: "short_answer",
-      question: "Hitung: 30 ÷ 5 = ...",
-      answer: "6",
-      explanation: "30 ÷ 5 = 6.",
+      question: "Sederhanakan: (x^2 − 9) / (x − 3), dengan x ≠ 3",
+      answer: "x+3",
+      explanation: "x^2 − 9 = (x − 3)(x + 3) → hasil x + 3.",
     },
     {
       id: "q6",
       type: "multiple_choice",
-      question: "Hasil dari 54 ÷ 6 adalah ...",
-      choices: ["7", "8", "9", "10"],
-      answer: "9",
-      explanation: "54 ÷ 6 = 9.",
+      question: "Bentuk faktorisasi yang benar untuk 6x^2 − 15x adalah ...",
+      choices: ["3x(2x − 5)", "6x(x − 5)", "5x(6x − 3)", "3(2x − 5)"],
+      answer: "3x(2x − 5)",
+      explanation: "6x^2 − 15x = 3x(2x − 5).",
     },
     {
       id: "q7",
       type: "short_answer",
-      question: "Hitung: 81 ÷ 9 = ...",
-      answer: "9",
-      explanation: "81 ÷ 9 = 9.",
+      question: "Jika a + b = 10 dan a − b = 4, tentukan nilai a.",
+      answer: "7",
+      explanation: "Jumlahkan persamaan: 2a = 14 → a = 7.",
     },
     {
       id: "q8",
-      type: "multiple_choice",
-      question: "Hasil dari 2,5 × 4 adalah ...",
-      choices: ["6", "8", "10", "12"],
-      answer: "10",
-      explanation: "2,5 × 4 = 10.",
+      type: "story_problem",
+      question:
+        "Luas persegi panjang adalah 30 cm^2. Panjangnya (x + 3) cm dan lebarnya (x + 2) cm. Tentukan nilai x.",
+      answer: "3",
+      explanation:
+        "(x + 3)(x + 2) = 30 → x^2 + 5x + 6 = 30 → x^2 + 5x − 24 = 0 → (x + 8)(x − 3) = 0 → x = 3.",
     },
     {
       id: "q9",
-      type: "short_answer",
-      question: "Hitung: 0,6 × 5 = ...",
-      answer: "3",
-      explanation: "0,6 × 5 = 3.",
+      type: "multiple_choice",
+      question: "Jika x = 2y + 1 dan y = 3, maka nilai x adalah ...",
+      choices: ["5", "6", "7", "8"],
+      answer: "7",
+      explanation: "x = 2(3) + 1 = 7.",
     },
     {
       id: "q10",
-      type: "true_false",
-      question: "4 × 7 = 28 (Benar/Salah)",
-      answer: true,
-      explanation: "4 × 7 = 28.",
+      type: "short_answer",
+      question: "Sederhanakan: 4x − 3(2x − 5) = ...",
+      answer: "-2x+15",
+      explanation: "4x − 6x + 15 = -2x + 15.",
     },
     {
       id: "q11",
-      type: "short_answer",
-      question: "Hitung: 48 ÷ 8 = ...",
-      answer: "6",
-      explanation: "48 ÷ 8 = 6.",
+      type: "story_problem",
+      question:
+        "Keliling segitiga sama kaki 40 cm. Dua sisi yang sama panjang adalah x cm, dan alasnya 2x − 4 cm. Tentukan x.",
+      answer: "11",
+      explanation: "2x + (2x − 4) = 40 → 4x − 4 = 40 → x = 11.",
     },
     {
       id: "q12",
-      type: "multiple_choice",
-      question: "Hasil dari 3 × 9 adalah ...",
-      choices: ["18", "21", "27", "29"],
-      answer: "27",
-      explanation: "3 × 9 = 27.",
+      type: "short_answer",
+      question: "Tentukan x: (1/3)x + 5 = 17",
+      answer: "36",
+      explanation: "x/3 = 12 → x = 36.",
     },
     {
       id: "q13",
-      type: "story_problem",
-      question:
-        "Ani punya 5 kantong, tiap kantong berisi 6 kelereng. Berapa jumlah kelereng Ani?",
-      answer: "30",
-      explanation: "5 × 6 = 30.",
+      type: "multiple_choice",
+      question: "Nilai dari (x − 2)^2 − (x + 2)^2 adalah ...",
+      choices: ["-8x", "8x", "-4x", "4x"],
+      answer: "-8x",
+      explanation: "(x^2 − 4x + 4) − (x^2 + 4x + 4) = -8x.",
     },
     {
       id: "q14",
       type: "story_problem",
       question:
-        "Ada 24 permen dibagi rata kepada 6 anak. Tiap anak mendapat berapa permen?",
-      answer: "4",
-      explanation: "24 ÷ 6 = 4.",
+        "Harga 4 kg apel dan 2 kg jeruk adalah Rp50.000. Harga 2 kg apel dan 3 kg jeruk adalah Rp55.000. Tentukan harga 1 kg apel.",
+      answer: "5000",
+      explanation:
+        "Misal a = apel, j = jeruk. 4a + 2j = 50.000 dan 2a + 3j = 55.000. Kalikan persamaan kedua dengan 2: 4a + 6j = 110.000. Selisih → 4j = 60.000 → j = 15.000. Substitusi: 4a + 30.000 = 50.000 → a = 5.000.",
     },
     {
       id: "q15",
       type: "short_answer",
-      question: "Hitung: 14 × 2 = ...",
-      answer: "28",
-      explanation: "14 × 2 = 28.",
+      question: "Tentukan x: (x − 1) / (x + 2) = 2/3",
+      answer: "7",
+      explanation: "3(x − 1) = 2(x + 2) → 3x − 3 = 2x + 4 → x = 7.",
     },
   ],
 };
@@ -128,10 +132,10 @@ function normalizeText(value) {
   return String(value || "")
     .trim()
     .toLowerCase()
-    .replace(/\s+/g, " ");
+    .replace(/\s+/g, "");
 }
 
-export default function PerkalianPembagian() {
+export default function Aljabar() {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [attempts, setAttempts] = useState({});
@@ -184,7 +188,7 @@ export default function PerkalianPembagian() {
 
     const failIfNone = () => showWrongToast("Isi jawaban terlebih dahulu.");
 
-    if (q.type === "multiple_choice" || q.type === "true_false") {
+    if (q.type === "multiple_choice") {
       if (user === undefined || user === null || user === "")
         return failIfNone();
     } else {
@@ -194,8 +198,6 @@ export default function PerkalianPembagian() {
     let ok = false;
     if (q.type === "multiple_choice") {
       ok = normalizeText(user) === normalizeText(q.answer);
-    } else if (q.type === "true_false") {
-      ok = String(user) === String(q.answer);
     } else {
       ok = normalizeText(user) === normalizeText(q.answer);
     }
@@ -335,30 +337,7 @@ export default function PerkalianPembagian() {
                   </div>
                 )}
 
-                {q.type === "true_false" && (
-                  <div className="flex gap-3">
-                    {[
-                      { label: "Benar", value: true },
-                      { label: "Salah", value: false },
-                    ].map((opt) => (
-                      <button
-                        key={opt.label}
-                        onClick={() =>
-                          setAnswers((a) => ({ ...a, [q.id]: opt.value }))
-                        }
-                        className={`px-4 py-2 rounded border ${
-                          answers[q.id] === opt.value
-                            ? "bg-indigo-500/30 border-indigo-400"
-                            : "bg-slate-900 border-slate-700"
-                        }`}
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                {(q.type === "short_answer" || q.type === "story_problem") && (
+                {q.type !== "multiple_choice" && (
                   <div>
                     <input
                       type="text"

@@ -3,121 +3,120 @@ import toast, { Toaster } from "react-hot-toast";
 import { AnimatePresence, motion } from "framer-motion";
 
 const DATA = {
-  title: "Perkalian & Pembagian (Mudah)",
+  title: "Pecahan, Desimal, dan Persen",
   description:
-    "Latihan dasar perkalian dan pembagian pada bilangan bulat serta desimal sederhana.",
+    "Latihan konversi dan operasi dasar pecahan, desimal, serta persen.",
   questions: [
     {
       id: "q1",
       type: "multiple_choice",
-      question: "Hasil dari 6 × 4 adalah ...",
-      choices: ["10", "24", "26", "64"],
-      answer: "24",
-      explanation: "6 dikali 4 = 24.",
+      question: "Ubah 3/4 ke bentuk desimal.",
+      choices: ["0,25", "0,5", "0,75", "1,25"],
+      answer: "0,75",
+      explanation: "3/4 = 0,75.",
     },
     {
       id: "q2",
-      type: "short_answer",
-      question: "Hitung: 9 × 3 = ...",
-      answer: "27",
-      explanation: "9 × 3 = 27.",
+      type: "multiple_choice",
+      question: "Ubah 0,2 ke bentuk pecahan paling sederhana.",
+      choices: ["1/2", "1/5", "2/5", "1/4"],
+      answer: "1/5",
+      explanation: "0,2 = 2/10 = 1/5.",
     },
     {
       id: "q3",
       type: "multiple_choice",
-      question: "Hasil dari 12 × 5 adalah ...",
-      choices: ["17", "60", "120", "25"],
-      answer: "60",
-      explanation: "12 × 5 = 60.",
+      question: "Ubah 45% ke bentuk pecahan paling sederhana.",
+      choices: ["9/20", "45/100", "3/5", "4/9"],
+      answer: "9/20",
+      explanation: "45% = 45/100 = 9/20.",
     },
     {
       id: "q4",
       type: "short_answer",
-      question: "Hitung: 7 × 8 = ...",
-      answer: "56",
-      explanation: "7 × 8 = 56.",
+      question: "Ubah 0,375 ke pecahan paling sederhana.",
+      answer: "3/8",
+      explanation: "0,375 = 375/1000 = 3/8.",
     },
     {
       id: "q5",
       type: "short_answer",
-      question: "Hitung: 30 ÷ 5 = ...",
-      answer: "6",
-      explanation: "30 ÷ 5 = 6.",
+      question: "Ubah 2/5 ke persen.",
+      answer: "40%",
+      explanation: "2/5 = 0,4 = 40%.",
     },
     {
       id: "q6",
-      type: "multiple_choice",
-      question: "Hasil dari 54 ÷ 6 adalah ...",
-      choices: ["7", "8", "9", "10"],
-      answer: "9",
-      explanation: "54 ÷ 6 = 9.",
+      type: "short_answer",
+      question: "Hitung: 1/2 + 1/4 = ...",
+      answer: "3/4",
+      explanation: "1/2 = 2/4, jadi 2/4 + 1/4 = 3/4.",
     },
     {
       id: "q7",
       type: "short_answer",
-      question: "Hitung: 81 ÷ 9 = ...",
-      answer: "9",
-      explanation: "81 ÷ 9 = 9.",
+      question: "Hitung: 0,6 + 0,35 = ...",
+      answer: "0,95",
+      explanation: "0,6 + 0,35 = 0,95.",
     },
     {
       id: "q8",
-      type: "multiple_choice",
-      question: "Hasil dari 2,5 × 4 adalah ...",
-      choices: ["6", "8", "10", "12"],
-      answer: "10",
-      explanation: "2,5 × 4 = 10.",
+      type: "short_answer",
+      question: "Hitung: 25% dari 200 = ...",
+      answer: "50",
+      explanation: "25% × 200 = 0,25 × 200 = 50.",
     },
     {
       id: "q9",
-      type: "short_answer",
-      question: "Hitung: 0,6 × 5 = ...",
-      answer: "3",
-      explanation: "0,6 × 5 = 3.",
+      type: "multiple_choice",
+      question: "Pecahan yang senilai dengan 0,4 adalah ...",
+      choices: ["2/5", "4/5", "1/4", "3/5"],
+      answer: "2/5",
+      explanation: "0,4 = 4/10 = 2/5.",
     },
     {
       id: "q10",
-      type: "true_false",
-      question: "4 × 7 = 28 (Benar/Salah)",
-      answer: true,
-      explanation: "4 × 7 = 28.",
+      type: "short_answer",
+      question: "Hitung: 3/5 × 0,2 = ...",
+      answer: "0,12",
+      explanation: "3/5 = 0,6, lalu 0,6 × 0,2 = 0,12.",
     },
     {
       id: "q11",
       type: "short_answer",
-      question: "Hitung: 48 ÷ 8 = ...",
-      answer: "6",
-      explanation: "48 ÷ 8 = 6.",
+      question: "Ubah 125% ke bentuk desimal.",
+      answer: "1,25",
+      explanation: "125% = 1,25.",
     },
     {
       id: "q12",
       type: "multiple_choice",
-      question: "Hasil dari 3 × 9 adalah ...",
-      choices: ["18", "21", "27", "29"],
-      answer: "27",
-      explanation: "3 × 9 = 27.",
+      question: "Mana yang lebih besar?",
+      choices: ["0,7", "70%", "7/10", "Semua sama"],
+      answer: "Semua sama",
+      explanation: "0,7 = 70% = 7/10.",
     },
     {
       id: "q13",
-      type: "story_problem",
-      question:
-        "Ani punya 5 kantong, tiap kantong berisi 6 kelereng. Berapa jumlah kelereng Ani?",
-      answer: "30",
-      explanation: "5 × 6 = 30.",
+      type: "short_answer",
+      question: "Hitung: 1,2 ÷ 0,3 = ...",
+      answer: "4",
+      explanation: "1,2 ÷ 0,3 = 12 ÷ 3 = 4.",
     },
     {
       id: "q14",
-      type: "story_problem",
-      question:
-        "Ada 24 permen dibagi rata kepada 6 anak. Tiap anak mendapat berapa permen?",
-      answer: "4",
-      explanation: "24 ÷ 6 = 4.",
+      type: "short_answer",
+      question: "Sebuah diskon 15% dari Rp80.000. Berapa harga setelah diskon?",
+      answer: "68000",
+      explanation: "Diskon 15% = 12.000, jadi 80.000 − 12.000 = 68.000.",
     },
     {
       id: "q15",
-      type: "short_answer",
-      question: "Hitung: 14 × 2 = ...",
-      answer: "28",
-      explanation: "14 × 2 = 28.",
+      type: "story_problem",
+      question:
+        "Sebuah kue dimakan 3/8 bagian. Berapa persen kue yang sudah dimakan?",
+      answer: "37,5%",
+      explanation: "3/8 = 0,375 = 37,5%.",
     },
   ],
 };
@@ -131,7 +130,7 @@ function normalizeText(value) {
     .replace(/\s+/g, " ");
 }
 
-export default function PerkalianPembagian() {
+export default function PecahanDesimalPersen() {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [attempts, setAttempts] = useState({});
@@ -184,7 +183,7 @@ export default function PerkalianPembagian() {
 
     const failIfNone = () => showWrongToast("Isi jawaban terlebih dahulu.");
 
-    if (q.type === "multiple_choice" || q.type === "true_false") {
+    if (q.type === "multiple_choice") {
       if (user === undefined || user === null || user === "")
         return failIfNone();
     } else {
@@ -194,8 +193,6 @@ export default function PerkalianPembagian() {
     let ok = false;
     if (q.type === "multiple_choice") {
       ok = normalizeText(user) === normalizeText(q.answer);
-    } else if (q.type === "true_false") {
-      ok = String(user) === String(q.answer);
     } else {
       ok = normalizeText(user) === normalizeText(q.answer);
     }
@@ -335,30 +332,7 @@ export default function PerkalianPembagian() {
                   </div>
                 )}
 
-                {q.type === "true_false" && (
-                  <div className="flex gap-3">
-                    {[
-                      { label: "Benar", value: true },
-                      { label: "Salah", value: false },
-                    ].map((opt) => (
-                      <button
-                        key={opt.label}
-                        onClick={() =>
-                          setAnswers((a) => ({ ...a, [q.id]: opt.value }))
-                        }
-                        className={`px-4 py-2 rounded border ${
-                          answers[q.id] === opt.value
-                            ? "bg-indigo-500/30 border-indigo-400"
-                            : "bg-slate-900 border-slate-700"
-                        }`}
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                {(q.type === "short_answer" || q.type === "story_problem") && (
+                {q.type !== "multiple_choice" && (
                   <div>
                     <input
                       type="text"

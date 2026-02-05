@@ -1,16 +1,20 @@
 import React, { useMemo, useState } from "react";
 import AddAndSubt from "./addAndSubt.jsx";
 import AreaAndPerimeter from "./areaAndPerimeter.jsx";
+import AljabarDasar from "./aljabarDasar.jsx";
 import BilanganBulat from "./bilanganBulat.jsx";
 import BilanganCacah10000 from "./bilanganCacah10000.jsx";
+import PecahanDesimalPersen from "./pecahanDesimalPersen.jsx";
 import PerkalianPembagian from "./perkalianPembagian.jsx";
 import Probability from "./probability.jsx";
 
 const PAGES = [
   { id: "add-subt", label: "Add & Subt", Component: AddAndSubt },
+  { id: "aljabar-dasar", label: "Aljabar Dasar", Component: AljabarDasar },
   { id: "area-perimeter", label: "Area & Perimeter", Component: AreaAndPerimeter },
   { id: "bilangan-bulat", label: "Bilangan Bulat", Component: BilanganBulat },
   { id: "bilangan-cacah-10000", label: "Bilangan Cacah 10.000", Component: BilanganCacah10000 },
+  { id: "pecahan-desimal-persen", label: "Pecahan • Desimal • Persen", Component: PecahanDesimalPersen },
   { id: "perkalian-pembagian", label: "Perkalian & Pembagian", Component: PerkalianPembagian },
   { id: "probability", label: "Probability", Component: Probability },
 ];
