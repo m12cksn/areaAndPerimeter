@@ -3,120 +3,120 @@ import toast, { Toaster } from "react-hot-toast";
 import { AnimatePresence, motion } from "framer-motion";
 
 const DATA = {
-  title: "Pecahan, Desimal, dan Persen",
+  title: "Pecahan, Desimal, Persen",
   description:
-    "Latihan konversi dan operasi dasar pecahan, desimal, serta persen.",
+    "Latihan dasar konversi dan operasi sederhana pecahan, desimal, dan persen.",
   questions: [
     {
       id: "q1",
-      type: "multiple_choice",
-      question: "Ubah 3/4 ke bentuk desimal.",
-      choices: ["0,25", "0,5", "0,75", "1,25"],
-      answer: "0,75",
-      explanation: "3/4 = 0,75.",
+      type: "short_answer",
+      question: "Ubah pecahan 1/2 ke bentuk desimal = ...",
+      answer: "0,5",
+      explanation: "1/2 = 0,5.",
     },
     {
       id: "q2",
       type: "multiple_choice",
-      question: "Ubah 0,2 ke bentuk pecahan paling sederhana.",
+      question: "0,75 setara dengan ...",
+      choices: ["7,5%", "75%", "0,075%", "7,5"],
+      answer: "75%",
+      explanation: "0,75 = 75%.",
+    },
+    {
+      id: "q3",
+      type: "short_answer",
+      question: "25% dari 200 adalah ...",
+      answer: "50",
+      explanation: "25% = 1/4, jadi 1/4 × 200 = 50.",
+    },
+    {
+      id: "q4",
+      type: "short_answer",
+      question: "Hitung: 3/4 + 1/4 = ...",
+      answer: "1",
+      explanation: "3/4 + 1/4 = 4/4 = 1.",
+    },
+    {
+      id: "q5",
+      type: "multiple_choice",
+      question: "Pecahan yang setara dengan 0,2 adalah ...",
       choices: ["1/2", "1/5", "2/5", "1/4"],
       answer: "1/5",
       explanation: "0,2 = 2/10 = 1/5.",
     },
     {
-      id: "q3",
-      type: "multiple_choice",
-      question: "Ubah 45% ke bentuk pecahan paling sederhana.",
-      choices: ["9/20", "45/100", "3/5", "4/9"],
-      answer: "9/20",
-      explanation: "45% = 45/100 = 9/20.",
-    },
-    {
-      id: "q4",
-      type: "short_answer",
-      question: "Ubah 0,375 ke pecahan paling sederhana.",
-      answer: "3/8",
-      explanation: "0,375 = 375/1000 = 3/8.",
-    },
-    {
-      id: "q5",
-      type: "short_answer",
-      question: "Ubah 2/5 ke persen.",
-      answer: "40%",
-      explanation: "2/5 = 0,4 = 40%.",
-    },
-    {
       id: "q6",
       type: "short_answer",
-      question: "Hitung: 1/2 + 1/4 = ...",
-      answer: "3/4",
-      explanation: "1/2 = 2/4, jadi 2/4 + 1/4 = 3/4.",
+      question: "1/5 dari 60 adalah ...",
+      answer: "12",
+      explanation: "1/5 × 60 = 12.",
     },
     {
       id: "q7",
       type: "short_answer",
-      question: "Hitung: 0,6 + 0,35 = ...",
-      answer: "0,95",
-      explanation: "0,6 + 0,35 = 0,95.",
+      question: "Hitung: 0,3 + 0,7 = ...",
+      answer: "1",
+      explanation: "0,3 + 0,7 = 1.",
     },
     {
       id: "q8",
       type: "short_answer",
-      question: "Hitung: 25% dari 200 = ...",
-      answer: "50",
-      explanation: "25% × 200 = 0,25 × 200 = 50.",
+      question: "45% dari 80 adalah ...",
+      answer: "36",
+      explanation: "45% = 0,45, jadi 0,45 × 80 = 36.",
     },
     {
       id: "q9",
       type: "multiple_choice",
-      question: "Pecahan yang senilai dengan 0,4 adalah ...",
-      choices: ["2/5", "4/5", "1/4", "3/5"],
-      answer: "2/5",
-      explanation: "0,4 = 4/10 = 2/5.",
+      question: "0,04 setara dengan ...",
+      choices: ["4%", "0,4%", "40%", "0,04%"],
+      answer: "4%",
+      explanation: "0,04 = 4%.",
     },
     {
       id: "q10",
       type: "short_answer",
-      question: "Hitung: 3/5 × 0,2 = ...",
-      answer: "0,12",
-      explanation: "3/5 = 0,6, lalu 0,6 × 0,2 = 0,12.",
+      question: "Ubah 2/5 ke persen = ...",
+      answer: "40%",
+      explanation: "2/5 = 0,4 = 40%.",
     },
     {
       id: "q11",
-      type: "short_answer",
-      question: "Ubah 125% ke bentuk desimal.",
-      answer: "1,25",
-      explanation: "125% = 1,25.",
+      type: "story_problem",
+      question:
+        "Harga sebuah tas Rp150.000 mendapat diskon 20%. Berapa harga setelah diskon?",
+      answer: "120000",
+      explanation: "Diskon 20% dari 150.000 = 30.000, jadi 150.000 − 30.000 = 120.000.",
     },
     {
       id: "q12",
-      type: "multiple_choice",
-      question: "Mana yang lebih besar?",
-      choices: ["0,7", "70%", "7/10", "Semua sama"],
-      answer: "Semua sama",
-      explanation: "0,7 = 70% = 7/10.",
+      type: "story_problem",
+      question:
+        "Sebuah pita panjangnya 56 cm. Jika 3/8 bagiannya digunakan, berapa cm yang digunakan?",
+      answer: "21",
+      explanation: "3/8 × 56 = 3 × 7 = 21.",
     },
     {
       id: "q13",
       type: "short_answer",
-      question: "Hitung: 1,2 ÷ 0,3 = ...",
-      answer: "4",
-      explanation: "1,2 ÷ 0,3 = 12 ÷ 3 = 4.",
+      question: "Ubah 1,5 ke persen = ...",
+      answer: "150%",
+      explanation: "1,5 = 150%.",
     },
     {
       id: "q14",
-      type: "short_answer",
-      question: "Sebuah diskon 15% dari Rp80.000. Berapa harga setelah diskon?",
-      answer: "68000",
-      explanation: "Diskon 15% = 12.000, jadi 80.000 − 12.000 = 68.000.",
+      type: "multiple_choice",
+      question: "0,625 setara dengan pecahan ...",
+      choices: ["5/8", "1/8", "3/5", "5/6"],
+      answer: "5/8",
+      explanation: "0,625 = 625/1000 = 5/8.",
     },
     {
       id: "q15",
-      type: "story_problem",
-      question:
-        "Sebuah kue dimakan 3/8 bagian. Berapa persen kue yang sudah dimakan?",
-      answer: "37,5%",
-      explanation: "3/8 = 0,375 = 37,5%.",
+      type: "short_answer",
+      question: "12,5% dari 80 adalah ...",
+      answer: "10",
+      explanation: "12,5% = 0,125, jadi 0,125 × 80 = 10.",
     },
   ],
 };
@@ -190,12 +190,7 @@ export default function PecahanDesimalPersen() {
       if (!user || String(user).trim() === "") return failIfNone();
     }
 
-    let ok = false;
-    if (q.type === "multiple_choice") {
-      ok = normalizeText(user) === normalizeText(q.answer);
-    } else {
-      ok = normalizeText(user) === normalizeText(q.answer);
-    }
+    const ok = normalizeText(user) === normalizeText(q.answer);
 
     if (ok) {
       incrementAttempt(qid);

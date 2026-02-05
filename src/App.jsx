@@ -7,6 +7,8 @@ import BilanganCacah10000 from "./bilanganCacah10000.jsx";
 import PecahanDesimalPersen from "./pecahanDesimalPersen.jsx";
 import PerkalianPembagian from "./perkalianPembagian.jsx";
 import Probability from "./probability.jsx";
+import Tangram from "./tangram.jsx";
+import KakuroPerkalian from "./kakuroPerkalian.jsx";
 
 const PAGES = [
   { id: "add-subt", label: "Add & Subt", Component: AddAndSubt },
@@ -17,6 +19,8 @@ const PAGES = [
   { id: "pecahan-desimal-persen", label: "Pecahan • Desimal • Persen", Component: PecahanDesimalPersen },
   { id: "perkalian-pembagian", label: "Perkalian & Pembagian", Component: PerkalianPembagian },
   { id: "probability", label: "Probability", Component: Probability },
+  { id: "tangram", label: "Tangram", Component: Tangram },
+  { id: "kakuro-perkalian", label: "Kakuro Perkalian", Component: KakuroPerkalian },
 ];
 
 export default function App() {
