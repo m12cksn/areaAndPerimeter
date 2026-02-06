@@ -26,7 +26,7 @@ const PUZZLES = PERMS.map((perm, i) => ({
 
 function permuteSolution(solution, perm) {
   return solution.map((row) =>
-    row.map((cell) => (cell == null ? null : perm[cell - 1]))
+    row.map((cell) => (cell == null ? null : perm[cell - 1])),
   );
 }
 
@@ -81,6 +81,9 @@ export default function KakuroPerkalian() {
   const [answers, setAnswers] = useState({});
   const [attempts, setAttempts] = useState({});
   const [completed, setCompleted] = useState({});
+  const [perfectSolved, setPerfectSolved] = useState({});
+  const [lockedCells, setLockedCells] = useState({});
+  const [cellStatus, setCellStatus] = useState({});
   const [showResults, setShowResults] = useState(false);
   const [feedbackStatus, setFeedbackStatus] = useState(null);
   const [shakeKey, setShakeKey] = useState(0);
@@ -90,7 +93,7 @@ export default function KakuroPerkalian() {
   const clues = useMemo(() => computeClues(solution), [solution]);
 
   const totalCorrect = Object.values(completed).filter(
-    (v) => v === true
+    (v) => v === true,
   ).length;
 
   function incrementAttempt(qid) {
@@ -132,6 +135,14 @@ export default function KakuroPerkalian() {
       next[q.id] = map;
       return next;
     });
+    if ((lockedCells[q.id] || {})[key]) return;
+    setCellStatus((prev) => {
+      const next = { ...prev };
+      const map = { ...(next[q.id] || {}) };
+      delete map[key];
+      next[q.id] = map;
+      return next;
+    });
   }
 
   function handleSubmit() {
@@ -150,16 +161,23 @@ export default function KakuroPerkalian() {
     }
 
     let ok = true;
+    const statusMap = {};
     for (let r = 0; r < solution.length; r++) {
       for (let c = 0; c < solution.length; c++) {
         if (solution[r][c] == null) continue;
         const key = `${r}-${c}`;
         const userVal = Number(map[key]);
-        if (userVal !== solution[r][c]) ok = false;
+        const isCorrect = userVal === solution[r][c];
+        statusMap[key] = isCorrect ? "correct" : "wrong";
+        if (!isCorrect) ok = false;
       }
     }
 
     if (ok) {
+      if (at === 0) {
+        setPerfectSolved((p) => ({ ...p, [qid]: true }));
+      }
+      setCellStatus((s) => ({ ...s, [qid]: statusMap }));
       incrementAttempt(qid);
       mark(qid, true);
       showCorrectToast();
@@ -168,6 +186,18 @@ export default function KakuroPerkalian() {
         else setShowResults(true);
       }, 700);
     } else {
+      setCellStatus((s) => ({ ...s, [qid]: statusMap }));
+      if (at === 0) {
+        setLockedCells((prev) => {
+          const next = { ...prev };
+          const map = { ...(next[qid] || {}) };
+          Object.entries(statusMap).forEach(([k, v]) => {
+            if (v === "correct") map[k] = true;
+          });
+          next[qid] = map;
+          return next;
+        });
+      }
       if (at >= 1) {
         incrementAttempt(qid);
         mark(qid, false);
@@ -189,7 +219,7 @@ export default function KakuroPerkalian() {
       animate: { opacity: 1, scale: 1 },
       exit: { opacity: 0, scale: 0.97 },
     }),
-    []
+    [],
   );
 
   return (
@@ -210,10 +240,7 @@ export default function KakuroPerkalian() {
           {DATA.questions.map((qq, i) => {
             const locked = !canOpenQuestion(i);
             const isActive = i === index && !showResults;
-            const done = Object.prototype.hasOwnProperty.call(
-              completed,
-              qq.id
-            );
+            const done = Object.prototype.hasOwnProperty.call(completed, qq.id);
             return (
               <button
                 key={qq.id}
@@ -230,10 +257,10 @@ export default function KakuroPerkalian() {
                   isActive
                     ? "bg-emerald-500/20 text-emerald-200 border-emerald-400/50"
                     : done
-                    ? "bg-indigo-500/20 text-indigo-200 border-indigo-400/40"
-                    : locked
-                    ? "bg-slate-800 text-slate-500 border-slate-700"
-                    : "bg-slate-800 text-slate-200 border-slate-600",
+                      ? "bg-indigo-500/20 text-indigo-200 border-indigo-400/40"
+                      : locked
+                        ? "bg-slate-800 text-slate-500 border-slate-700"
+                        : "bg-slate-800 text-slate-200 border-slate-600",
                 ].join(" ")}
               >
                 {i + 1}
@@ -261,6 +288,24 @@ export default function KakuroPerkalian() {
                 </h2>
                 <h3 className="font-bold text-lg mb-4">{q.title}</h3>
 
+                <div className="mb-4 rounded-lg border border-slate-700 bg-slate-900/70 p-3 text-sm text-slate-200">
+                  <div className="font-semibold mb-2">Cara bermain singkat</div>
+                  <ul className="space-y-1 text-slate-300">
+                    <li>
+                      Isi hanya kotak putih dengan angka 1–9 (tidak boleh 0).
+                    </li>
+                    <li>
+                      Kotak gelap berisi petunjuk perkalian untuk segmen ke
+                      kanan dan/atau ke bawah.
+                    </li>
+                    <li>Angka dalam satu segmen tidak boleh berulang.</li>
+                    <li>
+                      Contoh: jika petunjuk kanan = 12 dan segmennya 2 kotak,
+                      maka isinya bisa 3 dan 4 (3×4=12).
+                    </li>
+                  </ul>
+                </div>
+
                 <div className="inline-block rounded-lg border border-slate-700 bg-slate-900 p-2">
                   <div className="grid grid-cols-7 gap-1">
                     {solution.map((row, r) =>
@@ -275,10 +320,9 @@ export default function KakuroPerkalian() {
                               key={key}
                               className="w-12 h-12 bg-slate-800 relative"
                               style={{
-                                backgroundImage:
-                                  clue
-                                    ? "linear-gradient(135deg, transparent 49%, #475569 50%, transparent 51%)"
-                                    : "none",
+                                backgroundImage: clue
+                                  ? "linear-gradient(135deg, transparent 49%, #475569 50%, transparent 51%)"
+                                  : "none",
                               }}
                             >
                               {clue?.down != null && (
@@ -305,10 +349,23 @@ export default function KakuroPerkalian() {
                               const v = e.target.value.replace(/[^1-9]/g, "");
                               setCellValue(r, c, v);
                             }}
-                            className="w-12 h-12 text-center text-lg font-semibold bg-slate-900 border border-slate-700 text-white"
+                            disabled={
+                              perfectSolved[q.id] === true ||
+                              (lockedCells[q.id] || {})[key]
+                            }
+                            className={[
+                              "w-12 h-12 text-center text-lg font-semibold border text-white",
+                              perfectSolved[q.id] === true
+                                ? "bg-emerald-700/40 border-emerald-400"
+                                : (cellStatus[q.id] || {})[key] === "correct"
+                                ? "bg-emerald-700/30 border-emerald-400"
+                                : (cellStatus[q.id] || {})[key] === "wrong"
+                                ? "bg-rose-700/30 border-rose-400"
+                                : "bg-slate-900 border-slate-700",
+                            ].join(" ")}
                           />
                         );
-                      })
+                      }),
                     )}
                   </div>
                 </div>
