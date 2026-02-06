@@ -4,25 +4,18 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const BASE_SOLUTION = [
   [null, null, null, null, null, null, null],
-  [null, null, 1, 2, 6, null, null],
-  [null, 4, 2, 3, 7, 8, null],
-  [null, 5, 3, null, 8, 6, null],
-  [null, 6, 4, 1, 9, 7, null],
-  [null, null, 5, 8, 4, null, null],
+  [null, null, 1, 2, null, null, null],
+  [null, 3, 4, null, 1, 2, null],
+  [null, 1, 2, null, 3, 4, null],
+  [null, null, 3, 4, null, null, null],
+  [null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null],
 ];
 
 const PERMS = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  [2, 3, 4, 5, 6, 7, 8, 9, 1],
-  [3, 4, 5, 6, 7, 8, 9, 1, 2],
-  [4, 5, 6, 7, 8, 9, 1, 2, 3],
-  [5, 6, 7, 8, 9, 1, 2, 3, 4],
-  [6, 7, 8, 9, 1, 2, 3, 4, 5],
-  [7, 8, 9, 1, 2, 3, 4, 5, 6],
-  [8, 9, 1, 2, 3, 4, 5, 6, 7],
-  [9, 1, 2, 3, 4, 5, 6, 7, 8],
-  [2, 1, 4, 3, 6, 5, 8, 7, 9],
+  [2, 1, 3, 4, 5, 6, 7, 8, 9],
+  [1, 2, 4, 3, 5, 6, 7, 8, 9],
 ];
 
 const PUZZLES = PERMS.map((perm, i) => ({
@@ -77,9 +70,9 @@ function computeClues(solution) {
 }
 
 const DATA = {
-  title: "Kakuro Perkalian (7x7)",
+  title: "Kakuro Perkalian (Mudah)",
   description:
-    "Isi angka 1–9. Setiap segmen harus menghasilkan perkalian sesuai petunjuk dan tidak boleh ada digit yang berulang dalam segmen.",
+    "Isi angka 1–9. Segmen lebih pendek dan angka lebih kecil agar lebih mudah.",
   questions: PUZZLES,
 };
 
