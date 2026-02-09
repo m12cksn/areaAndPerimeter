@@ -10,6 +10,7 @@ import Probability from "./probability.jsx";
 import Tangram from "./tangram.jsx";
 import KakuroPerkalian from "./kakuroPerkalian.jsx";
 import PerkalianDasar from "./perkalianDasar.jsx";
+import PengukuranPanjangBerat from "./pengukuranPanjangBerat.jsx";
 
 const PAGES = [
   { id: "add-subt", label: "Add & Subt", Component: AddAndSubt },
@@ -23,6 +24,11 @@ const PAGES = [
   { id: "tangram", label: "Tangram", Component: Tangram },
   { id: "kakuro-perkalian", label: "Kakuro Perkalian", Component: KakuroPerkalian },
   { id: "perkalian-dasar", label: "Perkalian Dasar", Component: PerkalianDasar },
+  {
+    id: "pengukuran-panjang-berat",
+    label: "Pengukuran Panjang & Berat",
+    Component: PengukuranPanjangBerat,
+  },
 ];
 
 export default function App() {
