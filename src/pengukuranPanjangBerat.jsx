@@ -73,6 +73,7 @@ const DATA = {
           type: "short_answer",
           question: "Ubah 4.500 gram ke kilogram.",
           answer: "4.5 kg",
+          answerAlternatives: ["4,5 kg"],
           concept: "Konversi gram ke kg",
           explanation: "",
         },
@@ -110,6 +111,62 @@ function normalizeList(value) {
     .split(",")
     .map((v) => v.trim())
     .filter(Boolean);
+}
+
+function hasDigit(value) {
+  return /\d/.test(String(value || ""));
+}
+
+function normalizeNumericString(value) {
+  let text = String(value || "").toLowerCase();
+  text = text.replace(/kilogram/g, "kg");
+  text = text.replace(/\bkg\b/g, "");
+  text = text.replace(/\bgram\b/g, "");
+  text = text.replace(/\s+/g, "");
+
+  const hasComma = text.includes(",");
+  const hasDot = text.includes(".");
+
+  if (hasComma) {
+    text = text.replace(/\./g, "");
+    text = text.replace(/,/g, ".");
+  } else if (hasDot) {
+    const parts = text.split(".");
+    if (parts.length > 2) {
+      text = text.replace(/\./g, "");
+    } else if (parts.length === 2) {
+      const [left, right] = parts;
+      if (/^\d{1,3}$/.test(left) && /^\d{3}$/.test(right)) {
+        text = left + right;
+      }
+    }
+  }
+
+  text = text.replace(/[^\d.]/g, "");
+  if (text.includes(".")) {
+    const [intPart, decPart] = text.split(".");
+    const trimmedInt = intPart.replace(/^0+(?=\d)/, "") || "0";
+    const trimmedDec = decPart.replace(/0+$/, "");
+    return trimmedDec ? `${trimmedInt}.${trimmedDec}` : trimmedInt;
+  }
+  return text.replace(/^0+(?=\d)/, "") || "0";
+}
+
+function matchesAnswer(userValue, answer, alternatives = []) {
+  const normUser = normalizeText(userValue);
+  const allAnswers = [answer, ...alternatives]
+    .filter(Boolean)
+    .map((v) => normalizeText(v));
+  if (allAnswers.includes(normUser)) return true;
+
+  if (hasDigit(userValue) && hasDigit(answer)) {
+    const userNum = normalizeNumericString(userValue);
+    return [answer, ...alternatives]
+      .filter(Boolean)
+      .some((ans) => normalizeNumericString(ans) === userNum);
+  }
+
+  return false;
 }
 
 export default function PengukuranPanjangBerat() {
@@ -192,7 +249,7 @@ export default function PengukuranPanjangBerat() {
       q.type === "comparison" ||
       q.type === "open_ended"
     ) {
-      ok = normalizeText(user) === normalizeText(q.answer);
+      ok = matchesAnswer(user, q.answer, q.answerAlternatives);
     }
 
     if (ok) {

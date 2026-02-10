@@ -4,183 +4,206 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const DATA = {
   phase: 1,
-  title: "Bilangan Bulat",
-  description: "Latihan konsep bilangan bulat untuk kelas 3.",
+  title: "Fraction",
+  description: "Latihan pecahan berbasis cerita dan pemahaman konsep.",
   topics: [
     {
-      id: "bilangan_bulat_dasar",
-      title: "Bilangan Bulat",
+      id: "fraction_core",
+      title: "Fraction",
       questions: [
         {
           id: "q1",
           type: "multiple_choice",
           question:
-            "Pada garis bilangan, bilangan yang lebih besar berada di ...",
-          choices: ["kiri", "kanan", "atas", "bawah"],
-          answer: "kanan",
-          concept: "Arah pada garis bilangan",
-          explanation: "",
+            "Izzy has 10 magnets. 3/5 of them are yellow. How many yellow magnets are there?",
+          choices: ["4", "5", "6", "7"],
+          answer: "6",
+          concept: "Finding a fraction of a quantity",
+          explanation: "10 ÷ 5 = 2, then 2 × 3 = 6.",
         },
         {
           id: "q2",
-          type: "short_answer",
-          question: "Suhu -3°C dibanding -8°C, mana yang lebih tinggi?",
-          answer: "-3",
-          concept: "Perbandingan bilangan negatif",
-          explanation: "",
+          type: "essay",
+          question:
+            "A rope is 200 cm long. James cuts 3/10 of the rope. How long is the piece he cuts?",
+          answer: "60 cm",
+          concept: "Finding a fraction of a quantity",
+          explanation: "200 ÷ 10 = 20, then 20 × 3 = 60.",
         },
         {
           id: "q3",
           type: "multiple_choice",
-          question: "Manakah yang terbesar?",
-          choices: ["-10", "-1", "-3", "-8"],
-          answer: "-1",
-          concept: "Perbandingan bilangan bulat",
-          explanation: "",
+          question:
+            "2/3 of the length of a table is 20 cm. What is the full length of the table?",
+          choices: ["20 cm", "30 cm", "40 cm", "60 cm"],
+          answer: "30 cm",
+          concept: "Finding the whole from a fraction",
+          explanation: "If 2/3 is 20, then 1/3 is 10, so the whole is 30.",
         },
         {
           id: "q4",
-          type: "short_answer",
-          question: "Urutkan dari kecil ke besar: -12, 4, -3, 0, 7.",
-          answer: "-12 < -3 < 0 < 4 < 7",
-          concept: "Mengurutkan bilangan bulat",
-          explanation: "",
+          type: "essay",
+          question:
+            "3/5 of a table’s length is 24 cm. Find the full length of the table.",
+          answer: "40 cm",
+          concept: "Finding the whole from a fraction",
+          explanation: "24 ÷ 3 = 8, then 8 × 5 = 40.",
         },
         {
           id: "q5",
           type: "multiple_choice",
-          question: "Nilai dari (-4) + 7 adalah ...",
-          choices: ["-11", "3", "-3", "11"],
-          answer: "3",
-          concept: "Penjumlahan bilangan bulat",
-          explanation: "",
+          question:
+            "At a fruit stall, 1/4 of the fruit are pears. There are 150 pears. How many pieces of fruit are there in total?",
+          choices: ["450", "500", "600", "750"],
+          answer: "600",
+          concept: "Finding the whole from a fraction",
+          explanation: "If 1/4 is 150, then 4/4 is 150 × 4 = 600.",
         },
         {
           id: "q6",
-          type: "short_answer",
-          question: "Hitung: 15 + (-8) + (-6).",
-          answer: "1",
-          concept: "Penjumlahan bilangan bulat",
-          explanation: "",
+          type: "essay",
+          question:
+            "Natalie has some apples. 2/5 are red and the rest are green. If there are 15 green apples, how many apples did Natalie buy?",
+          answer: "25 apples",
+          concept: "Finding the whole from a fraction",
+          explanation: "Green are 3/5. If 3/5 is 15, then 1/5 is 5, so total is 25.",
         },
         {
           id: "q7",
           type: "multiple_choice",
-          question: "Hasil (-5) - (-9) = ...",
-          choices: ["-14", "4", "-4", "14"],
-          answer: "4",
-          concept: "Pengurangan bilangan bulat",
-          explanation: "",
+          question:
+            "Craig spent 3/7 of his money and had $28 left. Did he have more than $50 at first?",
+          choices: ["Yes", "No", "Cannot tell", "Only if he saved"],
+          answer: "No",
+          concept: "Fraction of a whole",
+          explanation:
+            "If 4/7 is $28, then 1/7 is $7, so total is $49, not more than $50.",
         },
         {
           id: "q8",
-          type: "short_answer",
-          question: "Hitung: -12 - 7.",
-          answer: "-19",
-          concept: "Pengurangan bilangan bulat",
-          explanation: "",
+          type: "essay",
+          question:
+            "A water tank is 240 L. If 5/8 of the tank is full, how many liters of water are in the tank?",
+          answer: "150 L",
+          concept: "Finding a fraction of a quantity",
+          explanation: "240 ÷ 8 = 30, then 30 × 5 = 150.",
         },
         {
           id: "q9",
           type: "multiple_choice",
-          question: "Hasil (-3) × 6 = ...",
-          choices: ["18", "-18", "-3", "3"],
-          answer: "-18",
-          concept: "Perkalian bilangan bulat",
-          explanation: "",
+          question: "Which is the correct method to find 4/9 of 81?",
+          choices: ["81 ÷ 4 × 9", "81 ÷ 9 × 4", "81 × 4 × 9", "81 ÷ 36"],
+          answer: "81 ÷ 9 × 4",
+          concept: "Fraction as operator",
+          explanation: "Divide by denominator, then multiply by numerator.",
         },
         {
           id: "q10",
-          type: "short_answer",
-          question: "Hitung: (-4) × (-8).",
-          answer: "32",
-          concept: "Perkalian bilangan bulat",
-          explanation: "",
+          type: "essay",
+          question:
+            "5/6 of a jar of beads is 30 beads. How many beads are in a full jar?",
+          answer: "36 beads",
+          concept: "Finding the whole from a fraction",
+          explanation: "30 ÷ 5 = 6, then 6 × 6 = 36.",
         },
         {
           id: "q11",
           type: "multiple_choice",
-          question: "Hasil 24 ÷ (-6) = ...",
-          choices: ["-4", "4", "-6", "6"],
-          answer: "-4",
-          concept: "Pembagian bilangan bulat",
-          explanation: "",
+          question:
+            "A ribbon is 2.4 m long. Mary cuts 3/8 of it. How long is the piece?",
+          choices: ["0.6 m", "0.9 m", "1.2 m", "1.5 m"],
+          answer: "0.9 m",
+          concept: "Finding a fraction of a quantity",
+          explanation: "2.4 ÷ 8 = 0.3, then 0.3 × 3 = 0.9.",
         },
         {
           id: "q12",
-          type: "short_answer",
-          question: "Hitung: (-36) ÷ (-9).",
-          answer: "4",
-          concept: "Pembagian bilangan bulat",
-          explanation: "",
+          type: "essay",
+          question:
+            "3/4 of a class is 27 students. How many students are in the class?",
+          answer: "36 students",
+          concept: "Finding the whole from a fraction",
+          explanation: "27 ÷ 3 = 9, then 9 × 4 = 36.",
         },
         {
           id: "q13",
           type: "multiple_choice",
-          question: "Jika suhu -5°C naik 8°C, suhu menjadi ...",
-          choices: ["-13", "3", "-3", "13"],
-          answer: "3",
-          concept: "Penjumlahan bilangan bulat dalam konteks",
-          explanation: "",
+          question:
+            "A bakery sells 1/5 of its cupcakes in the morning. If it sold 24 cupcakes, how many cupcakes did it bake?",
+          choices: ["96", "100", "120", "140"],
+          answer: "120",
+          concept: "Finding the whole from a fraction",
+          explanation: "24 is 1/5, so total is 24 × 5 = 120.",
         },
         {
           id: "q14",
-          type: "short_answer",
-          question: "Jika saldo -250.000 ditambah 400.000, saldo menjadi ...",
-          answer: "150000",
-          concept: "Penjumlahan bilangan bulat dalam konteks",
-          explanation: "",
+          type: "essay",
+          question:
+            "A car used 3/10 of a full tank on a trip. If that was 12 L, how many liters does the full tank hold?",
+          answer: "40 L",
+          concept: "Finding the whole from a fraction",
+          explanation: "12 ÷ 3 = 4, then 4 × 10 = 40.",
         },
         {
           id: "q15",
           type: "multiple_choice",
-          question: "Manakah pernyataan benar?",
-          choices: ["-8 > -3", "-3 > -8", "-3 < -8", "-3 = -8"],
-          answer: "-3 > -8",
-          concept: "Perbandingan bilangan negatif",
-          explanation: "",
+          question: "Which statement is true when finding a fraction of a quantity?",
+          choices: [
+            "Multiply by the denominator first",
+            "Divide by the denominator then multiply by the numerator",
+            "Always multiply by the numerator only",
+            "Always divide by the numerator only",
+          ],
+          answer: "Divide by the denominator then multiply by the numerator",
+          concept: "Fraction as operator",
+          explanation:
+            "This is the standard method for finding a fraction of a quantity.",
         },
         {
           id: "q16",
-          type: "short_answer",
-          question: "Dari -1 dan -10, mana lebih kecil?",
-          answer: "-10",
-          concept: "Perbandingan bilangan bulat",
-          explanation: "",
+          type: "essay",
+          question:
+            "2/7 of a stack of books is 12 books. How many books are in the stack?",
+          answer: "42 books",
+          concept: "Finding the whole from a fraction",
+          explanation: "12 ÷ 2 = 6, then 6 × 7 = 42.",
         },
         {
           id: "q17",
           type: "multiple_choice",
-          question: "Sifat komutatif berlaku pada ...",
-          choices: ["penjumlahan", "pengurangan", "pembagian", "pengurangan dan pembagian"],
-          answer: "penjumlahan",
-          concept: "Sifat operasi",
-          explanation: "",
+          question: "If 4/9 of a number is 20, the number is",
+          choices: ["36", "40", "45", "60"],
+          answer: "45",
+          concept: "Finding the whole from a fraction",
+          explanation: "20 ÷ 4 = 5, then 5 × 9 = 45.",
         },
         {
           id: "q18",
-          type: "short_answer",
-          question: "Berikan contoh pengurangan yang tidak komutatif.",
-          answer: "5-2 != 2-5",
-          concept: "Sifat operasi",
-          explanation: "",
+          type: "essay",
+          question:
+            "A farmer harvested 5/6 of his field, which equals 25 hectares. How large is the whole field?",
+          answer: "30 hectares",
+          concept: "Finding the whole from a fraction",
+          explanation: "25 ÷ 5 = 5, then 5 × 6 = 30.",
         },
         {
           id: "q19",
           type: "multiple_choice",
-          question: "Sifat asosiatif berlaku pada ...",
-          choices: ["penjumlahan", "pengurangan", "pembagian", "pengurangan dan pembagian"],
-          answer: "penjumlahan",
-          concept: "Sifat operasi",
-          explanation: "",
+          question: "A rope is 180 cm long. If 7/9 of it is used, how much is left?",
+          choices: ["20 cm", "40 cm", "60 cm", "80 cm"],
+          answer: "40 cm",
+          concept: "Fraction of a quantity and remainder",
+          explanation: "Used 7/9, so left 2/9. 180 ÷ 9 = 20, 20 × 2 = 40.",
         },
         {
           id: "q20",
-          type: "short_answer",
-          question: "Hitung: (-10) + (-4) - 17.",
-          answer: "-31",
-          concept: "Operasi campuran bilangan bulat",
-          explanation: "",
+          type: "essay",
+          question:
+            "A tank is 3/5 full. If 24 L is added to make it full, how much does the tank hold?",
+          answer: "60 L",
+          concept: "Finding the whole from fractional remainder",
+          explanation:
+            "3/5 full means 2/5 is missing. If 2/5 is 24, then 1/5 is 12, so total is 60.",
         },
       ],
     },
@@ -209,68 +232,7 @@ function normalizeList(value) {
     .filter(Boolean);
 }
 
-function hasDigit(value) {
-  return /\d/.test(String(value || ""));
-}
-
-function normalizeNumericString(value) {
-  let text = String(value || "").toLowerCase();
-  text = text.replace(/\s+/g, "");
-
-  const hasComma = text.includes(",");
-  const hasDot = text.includes(".");
-
-  if (hasComma) {
-    text = text.replace(/\./g, "");
-    text = text.replace(/,/g, ".");
-  } else if (hasDot) {
-    const parts = text.split(".");
-    if (parts.length > 2) {
-      text = text.replace(/\./g, "");
-    } else if (parts.length === 2) {
-      const [left, right] = parts;
-      if (/^\d{1,3}$/.test(left) && /^\d{3}$/.test(right)) {
-        text = left + right;
-      }
-    }
-  }
-
-  text = text.replace(/[^\d.]/g, "");
-  if (text.includes(".")) {
-    const [intPart, decPart] = text.split(".");
-    const trimmedInt = intPart.replace(/^0+(?=\d)/, "") || "0";
-    const trimmedDec = decPart.replace(/0+$/, "");
-    return trimmedDec ? `${trimmedInt}.${trimmedDec}` : trimmedInt;
-  }
-  return text.replace(/^0+(?=\d)/, "") || "0";
-}
-
-function normalizeInequality(value) {
-  return String(value || "")
-    .replace(/\s+/g, "")
-    .replace(/[<>≤≥]/g, (m) => m)
-    .replace(/(<=)/g, "<=")
-    .replace(/(>=)/g, ">=");
-}
-
-function matchesAnswer(userValue, answer) {
-  const normUser = normalizeText(userValue);
-  if (normalizeText(answer) === normUser) return true;
-
-  if (String(answer).includes("<") || String(answer).includes(">")) {
-    if (normalizeInequality(userValue) === normalizeInequality(answer)) {
-      return true;
-    }
-  }
-
-  if (hasDigit(userValue) && hasDigit(answer)) {
-    return normalizeNumericString(userValue) === normalizeNumericString(answer);
-  }
-
-  return false;
-}
-
-export default function BilanganBulat() {
+export default function Fraction() {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [attempts, setAttempts] = useState({});
@@ -330,7 +292,8 @@ export default function BilanganBulat() {
       q.type === "story_problem" ||
       q.type === "comparison" ||
       q.type === "open_ended" ||
-      q.type === "ordering"
+      q.type === "ordering" ||
+      q.type === "essay"
     ) {
       if (!user || String(user).trim() === "") return failIfNone();
     }
@@ -348,9 +311,10 @@ export default function BilanganBulat() {
       q.type === "short_answer" ||
       q.type === "story_problem" ||
       q.type === "comparison" ||
-      q.type === "open_ended"
+      q.type === "open_ended" ||
+      q.type === "essay"
     ) {
-      ok = matchesAnswer(user, q.answer);
+      ok = normalizeText(user) === normalizeText(q.answer);
     }
 
     if (ok) {
@@ -514,7 +478,8 @@ export default function BilanganBulat() {
                 {(q.type === "short_answer" ||
                   q.type === "story_problem" ||
                   q.type === "comparison" ||
-                  q.type === "open_ended") && (
+                  q.type === "open_ended" ||
+                  q.type === "essay") && (
                   <div>
                     <input
                       type="text"

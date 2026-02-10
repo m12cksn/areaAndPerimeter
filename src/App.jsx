@@ -11,6 +11,7 @@ import Tangram from "./tangram.jsx";
 import KakuroPerkalian from "./kakuroPerkalian.jsx";
 import PerkalianDasar from "./perkalianDasar.jsx";
 import PengukuranPanjangBerat from "./pengukuranPanjangBerat.jsx";
+import Fraction from "./fraction.jsx";
 
 const PAGES = [
   { id: "add-subt", label: "Add & Subt", Component: AddAndSubt },
@@ -29,6 +30,7 @@ const PAGES = [
     label: "Pengukuran Panjang & Berat",
     Component: PengukuranPanjangBerat,
   },
+  { id: "fraction", label: "Fraction", Component: Fraction },
 ];
 
 export default function App() {
