@@ -8,73 +8,203 @@ const DATA = {
   questions: [
     {
       id: "q1",
-      type: "short_answer",
-      question: "Hitung: 5 × 9 = ...",
-      answer: "45",
-      explanation: "5 × 9 = 45.",
+      type: "multiple_choice",
+      question: "Jika 4 × ? = 28, maka ? = ...",
+      choices: ["5", "6", "7", "8"],
+      answer: "7",
+      explanation: "28 ÷ 4 = 7.",
     },
     {
       id: "q2",
-      type: "short_answer",
-      question: "Hitung: 4 × 8 = ...",
-      answer: "32",
-      explanation: "4 × 8 = 32.",
+      type: "multiple_choice",
+      question: "Nilai 5 × 7 dapat dihitung sebagai 5 × (5 + 2) = ...",
+      choices: ["25", "27", "35", "45"],
+      answer: "35",
+      explanation: "5 × (5 + 2) = 25 + 10 = 35.",
     },
     {
       id: "q3",
-      type: "short_answer",
-      question: "Hitung: 3 × 10 = ...",
-      answer: "30",
-      explanation: "3 × 10 = 30.",
+      type: "multiple_choice",
+      question: "Manakah yang nilainya sama dengan 3 × 8?",
+      choices: ["3 × 6 + 3 × 2", "3 × 10 − 3 × 4", "3 × 7 − 3", "3 × 5 + 5"],
+      answer: "3 × 6 + 3 × 2",
+      explanation: "3 × 6 + 3 × 2 = 18 + 6 = 24.",
     },
     {
       id: "q4",
-      type: "short_answer",
-      question: "Hitung: 2 × 6 = ...",
-      answer: "12",
-      explanation: "2 × 6 = 12.",
+      type: "multiple_choice",
+      question: "Jika 2 × 9 = 18, maka 2 × 10 − 2 × 1 = ...",
+      choices: ["16", "18", "20", "22"],
+      answer: "18",
+      explanation: "2 × 10 − 2 × 1 = 20 − 2 = 18.",
     },
     {
       id: "q5",
-      type: "short_answer",
-      question: "Hitung: 1 × 7 = ...",
-      answer: "7",
-      explanation: "1 × 7 = 7.",
+      type: "multiple_choice",
+      question: "Hasil 5 × 6 lebih besar dari 4 × 7 sebesar ...",
+      choices: ["2", "4", "6", "8"],
+      answer: "2",
+      explanation: "5 × 6 = 30 dan 4 × 7 = 28, selisih 2.",
     },
     {
       id: "q6",
-      type: "short_answer",
-      question: "Hitung: 5 × 4 = ...",
-      answer: "20",
-      explanation: "5 × 4 = 20.",
+      type: "multiple_choice",
+      question: "Jika 3 × 5 = 15, maka 3 × 6 = ...",
+      choices: ["16", "17", "18", "19"],
+      answer: "18",
+      explanation: "Tambah 3 karena naik satu kali: 15 + 3 = 18.",
     },
     {
       id: "q7",
-      type: "short_answer",
-      question: "Hitung: 2 × 9 = ...",
-      answer: "18",
-      explanation: "2 × 9 = 18.",
+      type: "multiple_choice",
+      question: "Manakah yang benar?",
+      choices: ["5 × 8 = 4 × 10", "5 × 8 = 5 × 7 + 2", "5 × 8 = 5 × 4", "5 × 8 = 6 × 8"],
+      answer: "5 × 8 = 4 × 10",
+      explanation: "5 × 8 = 40 dan 4 × 10 = 40.",
     },
     {
       id: "q8",
-      type: "short_answer",
-      question: "Hitung: 3 × 5 = ...",
-      answer: "15",
-      explanation: "3 × 5 = 15.",
+      type: "multiple_choice",
+      question: "Jika 4 × 9 = 36, maka 4 × 8 = ...",
+      choices: ["28", "30", "32", "34"],
+      answer: "32",
+      explanation: "Turun satu kali 4: 36 − 4 = 32.",
     },
     {
       id: "q9",
-      type: "short_answer",
-      question: "Hitung: 4 × 3 = ...",
-      answer: "12",
-      explanation: "4 × 3 = 12.",
+      type: "multiple_choice",
+      question: "Nilai 2 × 7 + 2 × 3 sama dengan ...",
+      choices: ["2 × 9", "2 × 10", "2 × 11", "2 × 12"],
+      answer: "2 × 10",
+      explanation: "2 × 7 + 2 × 3 = 2 × (7 + 3) = 2 × 10.",
     },
     {
       id: "q10",
-      type: "short_answer",
-      question: "Hitung: 5 × 2 = ...",
-      answer: "10",
-      explanation: "5 × 2 = 10.",
+      type: "multiple_choice",
+      question: "Bilangan yang membuat 5 × ? = 45 adalah ...",
+      choices: ["7", "8", "9", "10"],
+      answer: "9",
+      explanation: "45 ÷ 5 = 9.",
+    },
+    {
+      id: "q11",
+      type: "multiple_choice",
+      question: "Jika 3 × 9 = 27, maka 3 × 9 + 3 × 1 = ...",
+      choices: ["27", "28", "29", "30"],
+      answer: "30",
+      explanation: "3 × 9 + 3 × 1 = 27 + 3 = 30.",
+    },
+    {
+      id: "q12",
+      type: "multiple_choice",
+      question: "Manakah yang sama dengan 4 × 7?",
+      choices: ["4 × 5 + 4 × 2", "4 × 10 − 4 × 1", "4 × 6 − 2", "4 × 3 + 3"],
+      answer: "4 × 5 + 4 × 2",
+      explanation: "4 × (5 + 2) = 28.",
+    },
+    {
+      id: "q13",
+      type: "multiple_choice",
+      question: "Jika 2 × 8 = 16, maka 4 × 8 = ...",
+      choices: ["20", "24", "28", "32"],
+      answer: "32",
+      explanation: "4 × 8 adalah dua kali 2 × 8, jadi 2 × 16 = 32.",
+    },
+    {
+      id: "q14",
+      type: "multiple_choice",
+      question: "Hasil 5 × 10 − 5 × 6 adalah ...",
+      choices: ["10", "15", "20", "25"],
+      answer: "20",
+      explanation: "50 − 30 = 20.",
+    },
+    {
+      id: "q15",
+      type: "multiple_choice",
+      question: "Manakah yang nilainya paling besar?",
+      choices: ["5 × 7", "4 × 9", "3 × 10", "2 × 12"],
+      answer: "4 × 9",
+      explanation: "5 × 7 = 35, 4 × 9 = 36, 3 × 10 = 30, 2 × 12 = 24.",
+    },
+    {
+      id: "q16",
+      type: "multiple_choice",
+      question: "Jika 3 × 4 = 12, maka 3 × 4 + 3 × 2 = ...",
+      choices: ["14", "16", "18", "20"],
+      answer: "18",
+      explanation: "12 + 6 = 18.",
+    },
+    {
+      id: "q17",
+      type: "multiple_choice",
+      question: "Pernyataan yang benar adalah ...",
+      choices: ["2 × 9 = 3 × 6", "2 × 9 = 4 × 4", "2 × 9 = 5 × 3", "2 × 9 = 6 × 2"],
+      answer: "2 × 9 = 3 × 6",
+      explanation: "2 × 9 = 18 dan 3 × 6 = 18.",
+    },
+    {
+      id: "q18",
+      type: "multiple_choice",
+      question: "Jika 4 × 5 = 20, maka 4 × 6 = ...",
+      choices: ["22", "24", "26", "28"],
+      answer: "24",
+      explanation: "Tambah 4: 20 + 4 = 24.",
+    },
+    {
+      id: "q19",
+      type: "multiple_choice",
+      question: "Nilai 5 × 9 − 5 × 4 adalah ...",
+      choices: ["15", "20", "25", "30"],
+      answer: "25",
+      explanation: "45 − 20 = 25.",
+    },
+    {
+      id: "q20",
+      type: "multiple_choice",
+      question: "Jika 2 × 10 = 20, maka 2 × 10 − 2 × 7 = ...",
+      choices: ["4", "6", "8", "10"],
+      answer: "6",
+      explanation: "20 − 14 = 6.",
+    },
+    {
+      id: "q21",
+      type: "multiple_choice",
+      question: "Manakah yang bernilai 30?",
+      choices: ["5 × 5 + 5", "4 × 7 + 2", "3 × 9 + 3", "2 × 10 + 8"],
+      answer: "3 × 9 + 3",
+      explanation: "3 × 9 + 3 = 27 + 3 = 30.",
+    },
+    {
+      id: "q22",
+      type: "multiple_choice",
+      question: "Jika 5 × 8 = 40, maka 5 × 8 − 5 × 3 = ...",
+      choices: ["10", "15", "20", "25"],
+      answer: "25",
+      explanation: "40 − 15 = 25.",
+    },
+    {
+      id: "q23",
+      type: "multiple_choice",
+      question: "Nilai 4 × 9 + 4 × 1 adalah ...",
+      choices: ["36", "37", "38", "40"],
+      answer: "40",
+      explanation: "36 + 4 = 40.",
+    },
+    {
+      id: "q24",
+      type: "multiple_choice",
+      question: "Jika 3 × 10 = 30, maka 3 × 10 − 3 × 4 = ...",
+      choices: ["12", "15", "18", "21"],
+      answer: "18",
+      explanation: "30 − 12 = 18.",
+    },
+    {
+      id: "q25",
+      type: "multiple_choice",
+      question: "Manakah pasangan yang hasilnya sama?",
+      choices: ["5 × 6 dan 3 × 10", "4 × 8 dan 2 × 12", "3 × 7 dan 5 × 4", "2 × 9 dan 4 × 5"],
+      answer: "5 × 6 dan 3 × 10",
+      explanation: "5 × 6 = 30 dan 3 × 10 = 30.",
     },
   ],
 };
@@ -139,8 +269,12 @@ export default function PerkalianDasar() {
     const at = attempts[qid] || 0;
     const user = answers[qid];
 
-    if (!user || String(user).trim() === "") {
-      return showWrongToast("Isi jawaban terlebih dahulu.");
+    const failIfNone = () => showWrongToast("Isi jawaban terlebih dahulu.");
+
+    if (q.type === "multiple_choice") {
+      if (user === undefined || user === null || user === "") return failIfNone();
+    } else {
+      if (!user || String(user).trim() === "") return failIfNone();
     }
 
     const ok = normalizeText(user) === normalizeText(q.answer);
@@ -247,17 +381,49 @@ export default function PerkalianDasar() {
                 </h2>
                 <h3 className="font-bold text-lg mb-2">{q.question}</h3>
 
-                <div>
-                  <input
-                    type="text"
-                    value={answers[q.id] || ""}
-                    onChange={(e) =>
-                      setAnswers((a) => ({ ...a, [q.id]: e.target.value }))
-                    }
-                    className="w-full border rounded p-2 bg-slate-900 text-white"
-                    placeholder="Ketik jawaban..."
-                  />
-                </div>
+                {q.type === "multiple_choice" ? (
+                  <div className="space-y-3">
+                    {q.choices.map((opt) => {
+                      const selected = answers[q.id] === opt;
+                      const at = attempts[q.id] || 0;
+                      const isWrong =
+                        at >= 1 && selected && completed[q.id] === false;
+                      const isCorrect = completed[q.id] === true && selected;
+                      return (
+                        <button
+                          key={opt}
+                          onClick={() => {
+                            if (completed[q.id] === true || at >= 2) return;
+                            setAnswers((a) => ({ ...a, [q.id]: opt }));
+                          }}
+                          className={`block w-full text-left p-3 rounded border transition-colors ${
+                            selected
+                              ? isCorrect
+                                ? "bg-emerald-700/30 border-emerald-500"
+                                : isWrong
+                                ? "bg-red-600/20 border-red-500"
+                                : "bg-indigo-700/10 border-indigo-500"
+                              : "bg-slate-900 border-slate-700"
+                          }`}
+                        >
+                          {opt}
+                        </button>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div>
+                    <input
+                      type="text"
+                      value={answers[q.id] || ""}
+                      onChange={(e) =>
+                        setAnswers((a) => ({ ...a, [q.id]: e.target.value }))
+                      }
+                      className="w-full border rounded p-2 bg-slate-900 text-white"
+                      placeholder="Ketik jawaban..."
+                    />
+                  </div>
+                )}
 
                 <div className="mt-6 flex items-center gap-3">
                   <button
